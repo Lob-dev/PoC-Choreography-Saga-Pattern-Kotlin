@@ -7,6 +7,12 @@ PoC 및 사내 발표 자료 - Choreography Saga Pattern (with SQS, SNS)
 
 <br/>
 
+### 작업 기간
+- 22-11-21 ~ 25 > 기능 작업
+- 22-12-06 > 버그 수정
+
+<br/>
+
 ### Tech Stack
 - Kotlin
 - Spring Boot 2.7.5 
