@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/order?characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: sample1234!!
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      show-sql: true
+      format_sql: true
+    open-in-view: false
+
+cloud:
+  aws:
+    region:
+      static: ap-southeast-2
+      auto: false
+    credentials:
+      access-key: accesskey
+      secret-key: secretkey
+    end-point:
+      uri: http://localhost:4566
+
+message:
+  wait-time-to-mills: 5000
+
+logging:
+  level:
+    root: info

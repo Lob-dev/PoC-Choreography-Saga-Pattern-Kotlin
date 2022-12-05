@@ -1,0 +1,50 @@
+version: '3.7'
+
+services:
+  order-mariadb:
+    image: mariadb:latest
+    container_name: order-mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: sample1234!!
+      MARIADB_DATABASE: order
+    ports:
+      - "3306:3306"
+
+  payment-mariadb:
+    image: mariadb:latest
+    container_name: payment-mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: sample1234!!
+      MARIADB_DATABASE: payment
+    ports:
+      - "3307:3306"
+
+  stock-mariadb:
+    image: mariadb:latest
+    container_name: stock-mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: sample1234!!
+      MARIADB_DATABASE: stock
+    ports:
+      - "3308:3306"
+
+  localstack:
+    image: localstack/localstack:1.2.0
+    container_name: poc-localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=sqs,sns
+      - DEBUG=1
+      - USE_SSL=0
+      - DEFAULT_REGION=ap-northeast-2
+      - HOSTNAME=localstack
+      - HOSTNAME_EXTERNAL=localstack
+      - DATA_DIR=/tmp/localstack/data
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - localstack_data:/tmp/localstack/data
+
+volumes:
+  localstack_data:

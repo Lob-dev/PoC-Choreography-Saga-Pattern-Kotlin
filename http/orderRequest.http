@@ -1,0 +1,11 @@
+
+
+### 주문 생성
+POST {{apiAddress}}/api/orders
+Content-Type: application/json
+
+{
+  "productId": 1,
+  "productPrice": 3000,
+  "productCount": 3
+}
